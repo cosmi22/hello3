@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Deploy') {
             steps {
-                jiraComment body: 'This comment was sent from Jenkins pipeline. Testing deployments', issueKey: 'TES-7'
+                 echo 'Hello World'
             }
             
             post {
