@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Deploy') {
             steps {
-                 echo 'Hello World'
+                 jiraSendDeploymentInfo environmentId: '', environmentName: '', environmentType: 'development', issueKeys: ['TES-7'], serviceIds: [''], site: 'cosmi.atlassian.net', state: 'unknown'
             }
             
             post {
