@@ -4,13 +4,13 @@ pipeline {
     stages {
         stage('Deploy') {
             steps {
-                 jiraSendDeploymentInfo environmentId: '', environmentName: '', environmentType: 'development', issueKeys: ['TES-7'], serviceIds: [''], site: 'cosmi.atlassian.net', state: 'unknown'
+                 echo 'hello, Cosmi!'
             }
             
             post {
                 success {
                     // Trigger a deployment in Jira when the build succeeds
-                    jiraDeploymentUpdate(
+                    jiraSendDeploymentInfo(
                         idOrKey: 'TES-7',
                         versionName: '1.0',
                         environment: 'Production',
@@ -20,7 +20,7 @@ pipeline {
                 
                 failure {
                     // Trigger a deployment failure in Jira when the build fails
-                    jiraDeploymentUpdate(
+                    jiraSendDeploymentInfo(
                         idOrKey: 'TES-7',
                         versionName: '1.0',
                         environment: 'Production',
